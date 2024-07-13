@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+//import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      
+    <body className={inter.className}>{children}
+    
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin="true" ></script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
+crossOrigin="true"></script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
+crossOrigin="true" ></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    </body>
+  </html>
   );
 }
