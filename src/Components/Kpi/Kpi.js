@@ -1,36 +1,29 @@
-import React from "react";
-import Chart from "chart.js/auto";
+"use client";
+
+import React, { useState } from "react";
+import KpiLine from "./KpiLine";
 
 const Kpi = () => {
-	const ctx = document.getElementById("myChart");
-
-	const myChart = new Chart(ctx, {
-		type: "bar",
-		data: {
-			labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-			datasets: [
-				{
-					label: "# of Votes",
-					data: [12, 19, 3, 5, 2, 3],
-					borderWidth: 1,
-				},
-			],
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true,
-				},
-			},
-		},
-	});
+	const data = [43, 40, 50, 40, 70, 40, 45];
+	const labelCharts = "Sales";
+	const titleCharts = "Sales Last Week";
+	const backgroundColor = "yellow";
+	const lineTension = 0.4;
+	const fill = true;
+	const ticksColor = "black";
 
 	return (
 		<>
 			<h2>Kpi</h2>
-			<div>
-				<canvas id="myChart"></canvas>
-			</div>
+			<KpiLine
+				data={data}
+				labelCharts={labelCharts}
+				titleCharts={titleCharts}
+				colorBackground
+				lineTension
+				fill
+				ticksColor
+			></KpiLine>
 		</>
 	);
 };

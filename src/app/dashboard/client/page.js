@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Create from "../../../Components/Client/Create";
 import List from "../../../Components/Client/List";

@@ -3,6 +3,7 @@ import counterReducer from "../Redux/Reducer/counterSlice";
 import clientReducer from "../Redux/Reducer/clientSlice";
 import generalReducer from "../Redux/Reducer/generalReducer";
 import configurationReducer from "../Redux/Reducer/configurationReducer";
+import userReducer from "../Redux/Reducer/userReducer";
 
 export default configureStore({
 	reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
 		client: clientReducer,
 		general: generalReducer,
 		configuration: configurationReducer,
+		user: userReducer,
 	},
 });

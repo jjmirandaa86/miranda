@@ -1,3 +1,49 @@
+"use client";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Inter } from "next/font/google";
+import store from "../Redux/store";
+import { Provider } from "react-redux";
+import Script from 'next/script'
+
+
+const inter = Inter({ subsets: ["latin"] });
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        
+      <Provider store={store}>
+      {children}
+    </Provider>
+
+        </body>
+
+      <Script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin="" ></Script>
+<Script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossOrigin=""></Script>
+
+<Script
+src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
+crossOrigin="" ></Script>
+
+<Script src="path/to/chartjs/dist/chart.umd.js"></Script>
+
+    </html>
+  );
+}
+
+
+
+
+
+// <script src="path/to/chartjs/dist/chart.umd.js"></script>
+
+/*
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 //import "./globals.css";
@@ -19,7 +65,7 @@ export default function RootLayout({
     <html lang="en">
       
     <body className={inter.className}>{children}
-    
+    asasas
     <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin="true" ></script>
 
 <script
@@ -30,9 +76,11 @@ crossOrigin="true"></script>
 src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
 crossOrigin="true" ></script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="path/to/chartjs/dist/chart.umd.js"></script>
     
     </body>
   </html>
   );
 }
+
+*/
