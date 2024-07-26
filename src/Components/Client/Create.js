@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Form, Button, Image, Row } from "react-bootstrap";
 import { useClientHooks } from "../../Hooks/useClientHooks";
 
@@ -18,12 +19,19 @@ const Create = () => {
 	const { client, handleChange, handleSave, sideWindows, handleSideWindows } =
 		useClientHooks({ initialForm });
 
+	const { variant, size } = useSelector((state) => state.configuration.button);
+
 	return (
 		<>
 			{!sideWindows ? (
 				<>
-					<Button variant="" onClick={handleSideWindows}>
-						<Image src="assets/icons/add.svg" width="30" height="30" alt="Add" />
+					<Button variant={variant} size={size} onClick={handleSideWindows}>
+						<Image
+							src="../../assets/icons/add.svg"
+							width="30"
+							height="30"
+							alt="Add"
+						/>
 					</Button>
 				</>
 			) : (
@@ -103,11 +111,21 @@ const Create = () => {
 							</Form.Group>
 						</Row>
 						<Form.Group className="mb-1 float-end" controlId="form.state">
-							<Button variant="" onClick={handleSideWindows}>
-								<Image src="assets/icons/cancel.svg" width="30" height="30" alt="Add" />
+							<Button variant={variant} size={size} onClick={handleSideWindows}>
+								<Image
+									src="../../assets/icons/cancel.svg"
+									width="30"
+									height="30"
+									alt="Add"
+								/>
 							</Button>
-							<Button variant="" onClick={handleSave}>
-								<Image src="assets/icons/save.svg" width="30" height="30" alt="Add" />
+							<Button variant={variant} size={size} onClick={handleSave}>
+								<Image
+									src="../../assets/icons/save.svg"
+									width="30"
+									height="30"
+									alt="Add"
+								/>
 							</Button>
 						</Form.Group>
 					</Form>

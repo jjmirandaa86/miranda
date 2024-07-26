@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
+import { useSelector } from "react-redux";
 import { Form, Col, Row, Button, Container, Link } from "react-bootstrap";
 
 const Login = () => {
+	const { variant, size } = useSelector((state) => state.configuration.button);
 	return (
 		<Container>
 			<Form>
@@ -17,7 +19,7 @@ const Login = () => {
 				<Form.Group className="mb-3" controlId="formGroupPassword">
 					<p>Forget Password</p>
 				</Form.Group>
-				<Button variant="primary" href="/dashboard">
+				<Button variant={variant} size={size} href="/dashboard">
 					Login
 				</Button>
 			</Form>

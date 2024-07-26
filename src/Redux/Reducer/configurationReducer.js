@@ -6,7 +6,7 @@ export const configurationReducer = createSlice({
 		message: {
 			toast: {
 				position: "top-end",
-				animation: true,
+				animation: "true",
 				delay: 5000,
 			},
 		},
@@ -17,12 +17,16 @@ export const configurationReducer = createSlice({
 			paginationPageSizeSelector: [15, 20, 30],
 			rowSelection: "multiple",
 		},
+		button: {
+			variant: "secondary",
+			size: "lg",
+		},
 	},
 	reducers: {
 		resetConfigurationMessageToast: (state) => {
 			state.configuration.message.toast = {
 				position: "top-end",
-				animation: true,
+				animation: "true",
 				delay: 5000,
 			};
 		},

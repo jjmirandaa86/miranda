@@ -6,7 +6,6 @@ import Footer from "../../Components/General/Footer";
 const RootLayout = ({ children }) => {
 	return (
 		<>
-			layout second
 			<Menu />
 			<Container>{children}</Container>
 			<Footer />
