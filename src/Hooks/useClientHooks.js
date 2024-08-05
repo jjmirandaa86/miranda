@@ -20,23 +20,42 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 	const { getAll } = clientController();
 
 	const columns = [
-		{ field: "Id", headerName: "ID", editable: false },
+		{ field: "id", headerName: "ID", editable: false, minWidth: 25 },
 		{
-			field: "Identification",
-			editable: true,
-			cellEditor: "agSelectCellEditor",
+			field: "identification",
+			headerName: "IDENTIFICATION",
+			editable: false,
+			minWidth: 130,
 		},
 		{
-			field: "Name",
-			editable: true,
-			cellEditor: "agSelectCellEditor",
+			field: "name",
+			headerName: "NAME",
+			editable: false,
+			minWidth: 150,
 		},
-		{ field: "Address", editable: true, cellEditor: "agSelectCellEditor" },
-		{ field: "Phone", editable: true, cellEditor: "agSelectCellEditor" },
-		{ field: "Email", editable: true, cellEditor: "agSelectCellEditor" },
 		{
-			field: "State",
-			editable: true,
+			field: "address",
+			headerName: "ADDRESS",
+			editable: false,
+			minWidth: 150,
+		},
+		{
+			field: "phone",
+			headerName: "PHONE",
+			editable: false,
+			minWidth: 100,
+		},
+		{
+			field: "email",
+			headerName: "EMAIL",
+			editable: false,
+			minWidth: 150,
+		},
+		{
+			field: "status",
+			headerName: "STATUS",
+			editable: false,
+			minWidth: 100,
 			cellEditor: "agSelectCellEditor",
 			cellEditorParams: {
 				values: ["Active", "Inactive"],
@@ -60,32 +79,30 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 								variant=""
 								onClick={() => {
 									//setShowModal({ value: true, data });
-									alert("show alert");
+									alert("show alert edit");
 								}}
 							>
 								<Image
-									src="assets/icons/delete.svg"
+									src="../../assets/icons/edit.svg"
 									width="30"
 									height="30"
 									className="d-inline-block align-top"
-									alt="Delete row"
+									alt="Edit"
 								/>
 							</Button>
-						</div>
-						<div>
 							<Button
 								variant=""
 								onClick={() => {
 									//setShowModal({ value: true, data });
-									alert("show alert");
+									alert("show alert delete");
 								}}
 							>
 								<Image
-									src="assets/icons/delete.svg"
+									src="../../assets/icons/delete.svg"
 									width="30"
 									height="30"
 									className="d-inline-block align-top"
-									alt="Delete row"
+									alt="Delete"
 								/>
 							</Button>
 						</div>
@@ -106,11 +123,7 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 	const handleGetAll = async () => {
 		setLoading(true);
 		let data = await getAll();
-		console.log(data.data);
-		setData(data.data);
-		setLoading(false);
 
-		/*
 		if (data.count > 0 || data.statusText === "Success") {
 			setData(data.data);
 
@@ -129,15 +142,13 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 				changeMessage({
 					active: true,
 					title: "Getting data",
-					msg: "Data was getting",
-					variantColor: "success",
+					msg: "Data was not getting",
+					variantColor: "error",
 					hour: returnHour(),
 					date: returnDate_(),
 				}),
 			);
-			
 		}
-*/
 		setLoading(false);
 	};
 
@@ -193,51 +204,3 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 		handleSideWindows,
 	};
 };
-
-/*
-{
-			Id: 1,
-			Identification: "0923308654",
-			Name: "Jefferson Miranda",
-			Address: "New York St",
-			Phone: "0993277375",
-			Email: "jefferson_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 2,
-			Identification: "934287273",
-			Name: "Justin Miranda",
-			Address: "Ecuador",
-			Phone: "099432423",
-			Email: "justin_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 22,
-			Identification: "23452345234",
-			Name: "Dome Miranda",
-			Address: "Ecuador",
-			Phone: "099345345",
-			Email: "dome_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 22,
-			Identification: "23452345234",
-			Name: "Dome Miranda",
-			Address: "Ecuador",
-			Phone: "099345345",
-			Email: "dome_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 22,
-			Identification: "23452345234",
-			Name: "Dome Miranda",
-			Address: "Ecuador",
-			Phone: "099345345",
-			Email: "dome_miranda@hotmail.es",
-			State: "A",
-		},
-*/

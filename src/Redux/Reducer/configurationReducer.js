@@ -13,8 +13,8 @@ export const configurationReducer = createSlice({
 		grid: {
 			variant: "ag-theme-quartz", //ag-theme-quartz-dark   ||    ag-theme-quartz
 			pagination: true,
-			paginationPageSize: 5,
-			paginationPageSizeSelector: [15, 20, 30],
+			paginationPageSize: 10,
+			paginationPageSizeSelector: [5, 10, 15, 20, 30],
 			rowSelection: "multiple",
 		},
 		button: {
