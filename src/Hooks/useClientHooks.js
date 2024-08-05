@@ -4,9 +4,11 @@ import { Image, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMessage } from "../Redux/Reducer/generalReducer";
 import { returnHour, returnDate_ } from "../Helpers/utility";
+import { clientController } from "../Controller/clientController";
 
 export const useClientHooks = ({ initialForm, actionsButtons }) => {
-	const [client, setClient] = useState(initialForm);
+	const [client, setClient] = useState(initialForm); //New client
+	const [data, setData] = useState([]);
 	const [errors, setErrors] = useState({});
 	const [loading, setLoading] = useState(false);
 	const [response, setResponse] = useState(null);
@@ -15,53 +17,7 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 	const count = useSelector((state) => state.message);
 	const dispatch = useDispatch();
 
-	const data = [
-		{
-			Id: 1,
-			Identification: "0923308654",
-			Name: "Jefferson Miranda",
-			Address: "New York St",
-			Phone: "0993277375",
-			Email: "jefferson_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 2,
-			Identification: "934287273",
-			Name: "Justin Miranda",
-			Address: "Ecuador",
-			Phone: "099432423",
-			Email: "justin_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 22,
-			Identification: "23452345234",
-			Name: "Dome Miranda",
-			Address: "Ecuador",
-			Phone: "099345345",
-			Email: "dome_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 22,
-			Identification: "23452345234",
-			Name: "Dome Miranda",
-			Address: "Ecuador",
-			Phone: "099345345",
-			Email: "dome_miranda@hotmail.es",
-			State: "A",
-		},
-		{
-			Id: 22,
-			Identification: "23452345234",
-			Name: "Dome Miranda",
-			Address: "Ecuador",
-			Phone: "099345345",
-			Email: "dome_miranda@hotmail.es",
-			State: "A",
-		},
-	];
+	const { getAll } = clientController();
 
 	const columns = [
 		{ field: "Id", headerName: "ID", editable: false },
@@ -147,6 +103,44 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 		});
 	};
 
+	const handleGetAll = async () => {
+		setLoading(true);
+		let data = await getAll();
+		console.log(data.data);
+		setData(data.data);
+		setLoading(false);
+
+		/*
+		if (data.count > 0 || data.statusText === "Success") {
+			setData(data.data);
+
+			dispatch(
+				changeMessage({
+					active: true,
+					title: "Getting data",
+					msg: "Data was getting",
+					variantColor: "success",
+					hour: returnHour(),
+					date: returnDate_(),
+				}),
+			);
+		} else {
+			dispatch(
+				changeMessage({
+					active: true,
+					title: "Getting data",
+					msg: "Data was getting",
+					variantColor: "success",
+					hour: returnHour(),
+					date: returnDate_(),
+				}),
+			);
+			
+		}
+*/
+		setLoading(false);
+	};
+
 	const handleSave = () => {
 		//Create a method to storage data
 		dispatch(
@@ -189,8 +183,9 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 		columns,
 		client,
 		setClient,
-		handleChange,
+		handleGetAll,
 		handleSave,
+		handleChange,
 		handleModify,
 		handleDelete,
 		sideWindows,
@@ -198,3 +193,51 @@ export const useClientHooks = ({ initialForm, actionsButtons }) => {
 		handleSideWindows,
 	};
 };
+
+/*
+{
+			Id: 1,
+			Identification: "0923308654",
+			Name: "Jefferson Miranda",
+			Address: "New York St",
+			Phone: "0993277375",
+			Email: "jefferson_miranda@hotmail.es",
+			State: "A",
+		},
+		{
+			Id: 2,
+			Identification: "934287273",
+			Name: "Justin Miranda",
+			Address: "Ecuador",
+			Phone: "099432423",
+			Email: "justin_miranda@hotmail.es",
+			State: "A",
+		},
+		{
+			Id: 22,
+			Identification: "23452345234",
+			Name: "Dome Miranda",
+			Address: "Ecuador",
+			Phone: "099345345",
+			Email: "dome_miranda@hotmail.es",
+			State: "A",
+		},
+		{
+			Id: 22,
+			Identification: "23452345234",
+			Name: "Dome Miranda",
+			Address: "Ecuador",
+			Phone: "099345345",
+			Email: "dome_miranda@hotmail.es",
+			State: "A",
+		},
+		{
+			Id: 22,
+			Identification: "23452345234",
+			Name: "Dome Miranda",
+			Address: "Ecuador",
+			Phone: "099345345",
+			Email: "dome_miranda@hotmail.es",
+			State: "A",
+		},
+*/

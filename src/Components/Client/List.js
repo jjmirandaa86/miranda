@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Container, Button, Image } from "react-bootstrap";
 import { useClientHooks } from "../../Hooks/useClientHooks";
 
@@ -12,6 +12,7 @@ const List = () => {
 	const [showModal, setShowModal] = useState({ value: false, data: {} });
 
 	const {
+		handleGetAll,
 		data,
 		columns,
 		client,
@@ -25,35 +26,17 @@ const List = () => {
 		handleSideWindows,
 	} = useClientHooks({});
 
-	/*
-	const confirmDelete = (data) => {
-		//const { Id, Identification, Name, Address, Phone, Email, State } = data;
-		return (
-			<>
-				<Button
-					variant=""
-					onClick={() => {
-						setShowModal({ value: true, data });
-					}}
-				>
-					<Image
-						src="assets/icons/delete.svg"
-						width="30"
-						height="30"
-						className="d-inline-block align-top"
-						alt="Delete row"
-					/>
-				</Button>
-			</>
-		);
-	};
-	*/
+	useEffect(() => {
+		console.log("solo 1 vez");
+		handleGetAll();
+	}, []);
 
 	return (
 		<div>
 			<h5>Clients</h5>
 			<Grid data={data} columns={columns} />
-			{showModal.value && (
+			{/*
+{showModal.value && (
 				<Modals
 					title="Delete"
 					msg={`Are you sure delete Id: ${showModal.data.Id}, 
@@ -67,6 +50,7 @@ const List = () => {
 					setShowModal={setShowModal}
 				/>
 			)}
+				*/}
 		</div>
 	);
 };

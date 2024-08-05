@@ -25,13 +25,15 @@ const MenuOptions = () => {
 					title="Options"
 					id={`offcanvasNavbarDropdown-expand-${expand}`}
 				>
-					<NavDropdown.Item href="/dashboard/client">Client</NavDropdown.Item>
-					<NavDropdown.Item href="/dashboard/color">Color</NavDropdown.Item>
 					<NavDropdown.Item href="/dashboard/sales">Sales</NavDropdown.Item>
 					<NavDropdown.Divider />
 					<NavDropdown.Item href="/dashboard/configuration">
 						Something else here
 					</NavDropdown.Item>
+				</NavDropdown>
+				<NavDropdown title="Master" id={`offcanvasNavbarDropdown-expand-${expand}`}>
+					<NavDropdown.Item href="/dashboard/client">Client</NavDropdown.Item>
+					<NavDropdown.Item href="/dashboard/color">Color</NavDropdown.Item>
 				</NavDropdown>
 			</Nav>
 			<Nav.Link href="/dashboard/configuration">Configuration</Nav.Link>

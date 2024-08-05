@@ -8,7 +8,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
 const Grid = ({ data, columns }) => {
-	const [rowData, setRowData] = useState(data);
+	//const [rowData, setRowData] = useState(data);
 	const [columnDefs, setColumnDefs] = useState(columns);
 
 	const defaultColDef = useMemo(() => {
@@ -29,7 +29,8 @@ const Grid = ({ data, columns }) => {
 	return (
 		<div className={variant} style={{ height: 500 }}>
 			<AgGridReact
-				rowData={rowData}
+				//rowData={rowData}
+				rowData={data}
 				columnDefs={columnDefs}
 				defaultColDef={defaultColDef}
 				//onCellClicked={() => alert((p) => p.Id)}
