@@ -26,7 +26,9 @@ Plataforma empresarial de IA **privada** (on-prem / private cloud / hybrid) con 
 
 ## Stack MVP fijado (resumen)
 
-Ollama `llama3.1:8b` + `nomic-embed-text` · Next.js · NestJS · PostgreSQL/pgvector · Redis · MinIO · Keycloak · Docker Compose · vertical RRHH
+TypeScript · Next.js · NestJS · Prisma · PostgreSQL/pgvector · Redis+BullMQ · MinIO · Zod · Keycloak · Ollama `llama3.1:8b` + `nomic-embed-text` · Docker Compose · vertical RRHH  
+
+Detalle/alternativas → `docs/ARCHITECTURE.md` §2 (D-022)
 
 ## Activo ahora
 

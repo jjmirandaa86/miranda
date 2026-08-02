@@ -53,17 +53,26 @@ El LLM **nunca** decide permisos (`F-SEC-008`).
 
 ### Stack MVP
 
+Detalle + alternativas: [ARCHITECTURE.md §2](./ARCHITECTURE.md#2-stack-recomendado-jsts).
+
 | Capa | Tecnología |
 |------|------------|
-| Frontend | Next.js + TypeScript |
+| Lenguaje | TypeScript |
+| Frontend | Next.js |
 | Backend | NestJS |
-| Worker | Node (ingesta / embed) |
+| ORM | Prisma |
+| Worker | Node + BullMQ (ingesta / embed) |
 | DB | PostgreSQL + pgvector |
-| Cache / cola | Redis |
+| Cache / cola | Redis + BullMQ |
 | Objects | MinIO |
+| Validación | Zod |
 | LLM | Ollama (`llama3.1:8b`) |
+| Embeddings | `nomic-embed-text` |
+| Orchestrator | LangGraph.js / propio |
 | Auth | Keycloak (OIDC) |
+| Proxy | Nginx / Traefik |
 | Empaquetado | Docker Compose |
+| Conectores | Adapters HTTP propios (post-MVP) |
 
 ### Monorepo objetivo
 

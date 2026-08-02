@@ -2,7 +2,7 @@
 
 Registro vivo de decisiones. **Actualizar en cada cambio relevante.**
 
-Última actualización: 2026-08-02
+Última actualización: 2026-08-02 (D-022 stack detallado)
 
 ---
 
@@ -31,6 +31,7 @@ Registro vivo de decisiones. **Actualizar en cada cambio relevante.**
 | D-019 | 2026-08-02 | Air-gap Fase 1 = **parcial** (pull modelos una vez; runtime sin IA pública) | Realista para desarrollo; air-gap estricto después | F-DEP-001, P-008 |
 | D-020 | 2026-08-02 | Guía de implementación = [`BUILD-README.md`](./BUILD-README.md); gate = DoD por fase | Absorbe M15; evita codear sin plan | MODULES, build |
 | D-021 | 2026-08-02 | Monorepo: `apps/web`, `apps/api`, `apps/worker`, `packages/shared`, `infra/docker` | Claridad MVP | ARCHITECTURE / BUILD |
+| D-022 | 2026-08-02 | Stack JS/TS documentado con descripción + 2.ª opción por área (Prisma, BullMQ, Zod, LangGraph/propio, adapters HTTP, etc.) | Guía de implementación y tradeoffs sin cerrar alternativas | ARCHITECTURE §2, BUILD, AI-CONTEXT |
 
 ---
 
