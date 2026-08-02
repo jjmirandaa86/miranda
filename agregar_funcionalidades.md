@@ -10,5 +10,6 @@ cuando el usuario pida un resumen de alguna tabla o datos, que pida que tipo de 
 el sistema pueda seleccionar el modelo que esta ejecutando, esto solo lo hace el administrador.
 siempre validar 2 veces las respuesta que esta haciendo.
 sea parametrizado parametros como tipo de moneda, fecha inicio, fecha de cierre, valores de impuestos por fechas, valores por ICE por fechas, etc
-
+que siempre en las respuestas, maneje un lenguaje profesional, formal, enfocado a cada rol, es decir si soy de RRHH, el usuario entendera mas de RRHH, asi con los demas cargos.
 puedo tener un LLM en la nube pero solo se conecta por VPN ONPREMISE
+cada cliente puede tener varias sistemas, ERP, ODO, CRM, etc, para que las relaciones, no sea 1 empresa 1 solo sistema, si no que puedo tener N sistemas la empresa.
